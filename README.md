@@ -28,9 +28,13 @@ Created site is fully responsible and all requirements are fully respected
 
 TODO:
 *search icon when tablet, remove logo when phone
-*menu like header, left menu - main menu - black border part
+*menu like header(1породи, 2фото, 5ціни, 3інформація, 4факти)
+*left menu - main menu - black border part(допомога проекту, інформація про сайт, посилання, розробники)
 *tablet in two parts, phone in 2 pages
 *3 columns about dolmatins, phone 3 page
 *added animation zaluzi, second content, photo(about dolmatins)
 *footer reverse color
 *also animations, third color?
+*body font color, hovered color
+* hide footer if 
+DONE
