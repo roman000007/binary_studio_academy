@@ -139,7 +139,7 @@ input:focus {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background-color: greenyellow;
+    background-color: lightgray;
     justify-content: space-between;
     align-items: center;
 }
