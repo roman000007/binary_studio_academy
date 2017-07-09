@@ -11,7 +11,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: solid 4px darkgray;
+    border-bottom: solid 4px indianred;
 }
 
 textarea:focus,
@@ -76,12 +76,12 @@ input:focus {
     border-bottom: solid 2px #191919;
 }
 
-#header-search-text {
+.header-search-text {
     margin-right: 30px;
     font-size: 19px;
 }
 
-#header-search-text:hover {
+.header-search-text:hover {
     cursor: pointer;
     color: indianred;
     transform: scale(1.2);
@@ -111,7 +111,7 @@ input:focus {
 .author-text:hover {
     color: indianred;
     cursor: pointer;
-    transform: rotate(5deg);
+    transform: rotate(-6deg);
 }
 
 #menu-left {
@@ -161,6 +161,9 @@ footer {
 }
 
 .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 30px;
     padding: 50px;
     flex-grow: 1;
@@ -169,11 +172,22 @@ footer {
     border-radius: 3px;
 }
 
-.info:hover {
-    color: indianred;
-    cursor: pointer;
-    transform: scale(1.05);
+.article-icon {
+    margin-top: 75px;
+    width: 200px;
+    height: 200px;
+    border: solid 2px #c9c9c9;
+    border-radius: 2px;
+    opacity: 0.07;
 }
+.article-icon:hover {
+    transition: all 1s linear;
+    transform: scale(1.05);
+    opacity: 1;
+        border: solid 1px indianred;
+}
+
+/*customized example from web*/
 
 .w {
     display: flex;
@@ -205,15 +219,25 @@ footer {
     opacity: 0;
 }
 
+
+/*end*/
+
 .lg,
 .md,
 .sm {
     display: none;
 }
 
+
+
 @media screen and (min-width: 1100px) {
     .lg {
         display: block;
+    }
+    .info:hover {
+        color: indianred;
+        cursor: pointer;
+        transform: scale(1.05);
     }
 }
 
@@ -223,6 +247,11 @@ footer {
     }
     .lg {
         display: block;
+    }
+    .info:hover {
+        color: indianred;
+        cursor: pointer;
+        transform: scale(1.05);
     }
 }
 
@@ -242,22 +271,33 @@ footer {
     #header-search-input[type="text"] {
         margin-left: 30px;
     }
-    #header-search-text {
-        margin-left: 120px;
-        text-decoration: underline;
+    .header-search-text {
+        margin-left: 5px;
+    }
+    .info:hover {
+        color: indianred;
+        cursor: pointer;
+        transform: scale(1.05);
     }
 }
 
 @media screen and (max-width: 480px) {
+    .info {
+        margin: 20px;
+        padding: 20px;
+    }
+    .info:hover {
+        color: indianred;
+        cursor: pointer;
+    }
     #header-icon {
         display: none;
     }
     #header-search-input[type="text"] {
         margin-left: 30px;
     }
-    #header-search-text {
-        margin-left: 30px;
-        text-decoration: underline;
+    .header-search-text {
+        margin-left: 5px;
     }
     .main {
         flex-direction: column;
