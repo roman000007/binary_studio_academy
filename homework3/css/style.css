@@ -13,7 +13,15 @@ header {
     justify-content: space-around;
     border-bottom: solid 4px #42A5F5;
 }
-
+header:hover{
+    border-bottom: solid 4px indianred;
+}
+.highlight{
+    background-color: indianred;
+    color: white;
+    padding: 4px 0px;
+    border-radius: 4px;
+}
 textarea:focus,
 input:focus {
     outline: none;
@@ -117,9 +125,6 @@ footer {
     border: solid 1px #c9c9c9;
     border-radius: 3px;
 }
-.info h2:hover{
-    color: indianred;
-}
 .article-content:hover{
     font-weight: bold;
 }
@@ -163,7 +168,7 @@ footer {
 }
 
 .article-tags p:hover {
-    background-color: indianred;
+    background-color: indianred !important;
 }
 
 .article-date:hover {

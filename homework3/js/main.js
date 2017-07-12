@@ -1,13 +1,25 @@
 const main = document.getElementById('main');
+const search = document.getElementById('header-search-input');
 let addedPosts = 0;
+let currPos = 0;
 let data;
+let text = "";
 let dataLoaded = false;
 let choosedTags = [];
+let removedCards = [];
+let addedCards = [];
 window.onload = function () {
     loadData();
     loadTags();
-
 };
+
+
+search.addEventListener("keyup", function (event) {
+    text = search.value;
+    let to = addedPosts;
+    clearSpace();
+    addCards(data, currPos, to);
+});
 
 function loadData() {
     const headers = new Headers();
@@ -22,17 +34,19 @@ function loadData() {
         .then(response => {
             response.json().then(resp => {
                 data = resp.data;
-                for(let i = 0; i < data.length; i++){
-                  data[i].id = i;  
+                for (let i = 0; i < data.length; i++) {
+                    data[i].id = i;
                 };
                 sortData();
-                addCards(data, addedPosts, addedPosts + 10);
-                if(!dataLoaded){
-                dataLoaded = true;
-                window.scrollTo(0, 0);
+                addCards(data, currPos, 10);
+                if (!dataLoaded) {
+                    dataLoaded = true;
+                    window.scrollTo(0, 0);
                 };
-                
+
             });
+        }).catch(function (err) {
+            console.log(err);
         });
 
 };
@@ -43,34 +57,63 @@ function clearSpace() {
         main.removeChild(main.firstChild);
     }
     addedPosts = 0;
+    addedCards = [];
+    currPos = 0;
 };
 
 
-function addCards(data, from, to) {
+function addCards(data, from, amount) {
     let t = 0;
-    for (let i = Math.max(0, from); i < Math.min(data.length, to); i++) {
-        addCard(data[i]);
-        t++;
-    }
-    console.log("Added", t, "cards,", addedPosts + t);
+    for (let i = Math.max(0, from); i < data.length; i++) {
+        currPos = i;
+        if (at(data[i].id, addedCards)) {
+            continue;
+        };
+        if (at(data[i].id, removedCards)) {
+            console.log(data[i].id, "HIDDEN");
+        } else {
+            if (t == amount) {
+                break;
+            };
+            addCard(data[i]);
+            addedCards.push(data[i].id);
+            t++;
+        };
+    };
     addedPosts += t;
+    console.log("Added", t, "cards,", addedPosts);
 };
 
 
 function addCard(data) {
+    let contentText = filterText(data.description);
+    let titleText = filterText(data.title);
+    if (titleText == null && contentText == null) {
+        return;
+    };
+    if (titleText == null) {
+        titleText = data.title;
+    };
+    if (contentText == null) {
+        contentText = data.description;
+    };
     const card = document.createElement('div');
     card.setAttribute('class', "info");
+    card.setAttribute('data-id', data.id.toString());
 
     const close = document.createElement('i');
     close.setAttribute('class', "exit fa-close fa");
+    close.addEventListener("click", function (event) {
+        removeCard(event)
+    });
     card.appendChild(close);
 
     const title = document.createElement('h2');
-    title.innerHTML = data.title;
+    title.innerHTML = titleText;
     card.appendChild(title);
 
     const content = document.createElement('p');
-    content.innerHTML = data.description;
+    content.innerHTML = contentText;
     content.setAttribute("class", "article-content");
     card.appendChild(content);
 
@@ -111,8 +154,8 @@ function tagClicked(e) {
     } else {
         choosedTags.splice(choosedTags.indexOf(tag), 1);
         localStorage.setItem("tags", choosedTags.join(" "));
-        if(localStorage.getItem("tags") === ""){
-          localStorage.removeItem("tags");  
+        if (localStorage.getItem("tags") === "") {
+            localStorage.removeItem("tags");
         };
     }
     console.log(choosedTags);
@@ -123,9 +166,6 @@ function tagClicked(e) {
 };
 
 function at(el, data) {
-    if (data === null || data.isUndefined) {
-        return false;
-    }
     for (let i = 0; i < data.length; i++) {
         if (el === data[i]) {
             return true;
@@ -162,7 +202,7 @@ function styleTag(elem) {
 
 window.onscroll = function (ev) {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && dataLoaded) {
-        addCards(data, addedPosts, addedPosts + 10);
+        addCards(data, currPos, 10);
     };
 };
 
@@ -172,7 +212,7 @@ function countTags() {
     for (let i = 0; i < data.length; i++) {
         data[i].count = 0;
         for (let j = 0; j < data[i].tags.length; j++) {
-            if(at(data[i].tags[j], choosedTags)){
+            if (at(data[i].tags[j], choosedTags)) {
                 data[i].count++;
             };
         };
@@ -180,19 +220,61 @@ function countTags() {
 };
 
 
-function sortData(){
+function sortData() {
     countTags();
-    data.sort(function(a, b) {
-    if(a.count > b.count){
-        return -1;
+    data.sort(function (a, b) {
+        if (a.count > b.count) {
+            return -1;
+        }
+        if (a.count < b.count) {
+            return 1;
+        }
+        if (a.count == b.count) {
+            aDate = new Date(a.createdAt);
+            bDate = new Date(b.createdAt);
+            return bDate - aDate;
+        }
+    })
+};
+
+
+
+function filterText(cont) {
+    let contentText = "";
+    let all = 0;
+    let lowerCont = cont.toLowerCase();
+    let lowerSearch = text.toLowerCase();
+    let textSearchArray = lowerCont.split(lowerSearch);
+    if (text != "") {
+        if (textSearchArray.length == 1) {
+            return null;
+        } else {
+            for (let i = 0; i < textSearchArray.length; i++) {
+                for (let j = 0; j < textSearchArray[i].length; j++) {
+                    contentText += cont[all];
+                    all++;
+                };
+                contentText += "<span class='highlight'>";
+                for (let j = 0; j < text.length; j++) {
+                    if (cont[all] !== undefined) {
+                        contentText += cont[all];
+                    };
+                    all++;
+                };
+                contentText += "</span>";
+            };
+            return contentText;
+        }
+    } else {
+        return cont;
     }
-    if(a.count < b.count){
-        return 1;
-    }
-    if(a.count == b.count){
-        aDate = new Date(a.createdAt);
-        bDate = new Date(b.createdAt);
-        return bDate - aDate;
-    }
-})
+};
+
+
+function removeCard(event) {
+    console.log(parseInt(event.target.parentElement.getAttribute("data-id")));
+    removedCards.push(parseInt(event.target.parentElement.getAttribute("data-id")));
+    let to = addedPosts;
+    clearSpace();
+    addCards(data, currPos, to);
 };

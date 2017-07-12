@@ -1,6 +1,6 @@
 # Binary Studio Academy 2017
 
-### Actual homework is __2__
+### Actual homework is __3__
 ### Homework 1
 
 download __"homework1"__ directory and run __"index.html"__ file
@@ -24,8 +24,6 @@ Examples:
 
 download __"homework2"__ directory and run __"index.html"__ file
 
-Created site is fully responsible and all requirements are fully respected
-
 TODO:
 * search icon when tablet, remove logo when phone
 * menu like header(1породи, 2фото, 5ціни, 3інформація, 4факти)
@@ -38,3 +36,8 @@ TODO:
 * body font color, hovered color
 * hide footer if 
 ### DONE
+
+### Homework 3
+download __"homework3"__ directory and run __"index.html"__ file
+
+Created site is fully responsible and all requirements are fully respected
