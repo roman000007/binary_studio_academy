@@ -43,7 +43,7 @@ input:focus {
 @keyframes switch {
     0%,
     100% {
-        color: black;
+        color: #42A5F5;
     }
     25% {
         color: white;
@@ -66,7 +66,11 @@ input:focus {
 
 #header-search-input[type="text"]:focus,
 #header-search-input[type="text"].focus {
-    border-bottom: solid 2px #191919;
+    border-bottom: solid 2px #42A5F5;
+}
+
+#header-search-input[type="text"]:hover{
+    border-bottom: solid 2px indianred;
 }
 
 .author-text:hover {
@@ -75,15 +79,6 @@ input:focus {
     transform: rotate(-6deg);
 }
 
-#content-container {
-    background-image: url(../img/3.jpg);
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: lightgray;
-    justify-content: space-between;
-    align-items: center;
-}
 
 footer {
     margin-top: 20px;
@@ -97,10 +92,12 @@ footer {
 }
 
 #main {
+    
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     min-height: 750px;
+    background-image: url(../img/back.jpg);
 }
 .selected-tag{
   background-color: #42A5F5 !important;  
@@ -120,7 +117,12 @@ footer {
     border: solid 1px #c9c9c9;
     border-radius: 3px;
 }
-
+.info h2:hover{
+    color: indianred;
+}
+.article-content:hover{
+    font-weight: bold;
+}
 .article-icon {
     margin-top: 40px;
     width: 200px;

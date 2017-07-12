@@ -52,7 +52,7 @@ function addCards(data, from, to) {
         addCard(data[i]);
         t++;
     }
-    console.log("Added", t, "cards,", addedPosts);
+    console.log("Added", t, "cards,", addedPosts + t);
     addedPosts += t;
 };
 
@@ -71,6 +71,7 @@ function addCard(data) {
 
     const content = document.createElement('p');
     content.innerHTML = data.description;
+    content.setAttribute("class", "article-content");
     card.appendChild(content);
 
     const img = document.createElement('img');
