@@ -1,0 +1,231 @@
+body {
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: solid 4px #42A5F5;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+.exit {
+    margin-top: -25px;
+    margin-right: -260px;
+}
+
+.exit:hover {
+    color: indianred;
+}
+
+#header-icon {
+    margin-left: 20px;
+    font-size: 25px;
+    animation: switch 8s infinite;
+    animation-timing-function: ease;
+}
+
+#header-icon:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+@keyframes switch {
+    0%,
+    100% {
+        color: black;
+    }
+    25% {
+        color: white;
+    }
+    50% {
+        color: indianred;
+    }
+    75% {
+        color: white;
+    }
+}
+
+#header-search-input[type="text"] {
+    padding: 10px;
+    margin-right: 30px;
+    border: none;
+    border-bottom: solid 2px #c9c9c9;
+    transition: border 0.3s;
+}
+
+#header-search-input[type="text"]:focus,
+#header-search-input[type="text"].focus {
+    border-bottom: solid 2px #191919;
+}
+
+.author-text:hover {
+    color: indianred;
+    cursor: pointer;
+    transform: rotate(-6deg);
+}
+
+#content-container {
+    background-image: url(../img/3.jpg);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer {
+    margin-top: 20px;
+    height: 75px;
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+#main {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    min-height: 750px;
+}
+.selected-tag{
+  background-color: #42A5F5 !important;  
+}
+.info {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    margin-top: 45px;
+    padding: 40px;
+    flex-grow: 1;
+    background-color: white;
+    border: solid 1px #c9c9c9;
+    border-radius: 3px;
+}
+
+.article-icon {
+    margin-top: 40px;
+    width: 200px;
+    height: 200px;
+    border: solid 2px #c9c9c9;
+    border-radius: 2px;
+    opacity: 0.3;
+}
+
+.article-date {
+    margin-top: 15px;
+    font-size: 18px;
+    color: darkgray;
+    font-style: italic;
+}
+
+.article-icon:hover {
+    transition: all 1s linear;
+    transform: scale(1.05);
+    opacity: 1;
+    border: solid 1px indianred;
+}
+
+.article-tags {
+    display: flex;
+    margin-top: 75px;
+    flex-wrap: wrap;
+}
+
+.article-tags p {
+    padding: 5px;
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: -10px;
+    background-color: #c9c9c9;
+    border-radius: 3px;
+}
+
+.article-tags p:hover {
+    background-color: indianred;
+}
+
+.article-date:hover {
+    text-decoration: underline;
+    color: indianred;
+}
+
+.lg,
+.md,
+.sm {
+    display: none;
+}
+
+@media screen and (min-width: 1100px) {
+    .lg {
+        display: block;
+    }
+    .info:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+}
+
+@media screen and (max-width: 1100px) and (min-width:720px) {
+    .main {
+        flex-direction: column;
+    }
+    .lg {
+        display: block;
+    }
+    .info:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+}
+
+@media screen and (max-width: 720px) and (min-width:480px) {
+    .main {
+        flex-direction: column;
+    }
+    .md {
+        display: block;
+    }
+    .info:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .info {
+        margin: 20px;
+        padding: 20px;
+    }
+    .info:hover {
+        cursor: pointer;
+    }
+    #header-search-input[type="text"] {
+        margin-left: 30px;
+    }
+    .main {
+        flex-direction: column;
+    }
+    .sm {
+        display: block;
+    }
+}
