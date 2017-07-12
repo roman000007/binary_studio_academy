@@ -16,9 +16,8 @@ window.onload = function () {
 
 search.addEventListener("keyup", function (event) {
     text = search.value;
-    let to = addedPosts;
     clearSpace();
-    addCards(data, currPos, to);
+    addCards(data, 0, 10);
 });
 
 function loadData() {
@@ -202,7 +201,7 @@ function styleTag(elem) {
 
 window.onscroll = function (ev) {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && dataLoaded) {
-        addCards(data, currPos, 10);
+        addCards(data, 0, 10);
     };
 };
 
