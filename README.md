@@ -41,3 +41,10 @@ TODO:
 download __"homework3"__ directory and run __"index.html"__ file
 
 Created site is fully responsible and all requirements are fully respected
+
+### Homework 4
+Start:
+* download __"homework4"__ directory
+* in this directory run __node ./__
+
+How to send http read at __homework4/README.md__

@@ -28,7 +28,6 @@ router.get('/:id', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
 	const obj = req.body;
-    console.log(req.body);
 	userService.add(obj, (err, data) => {
         if(!err){
             res.status(200).end();

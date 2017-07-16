@@ -1,0 +1,174 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Task4",
+		"_postman_id": "a762d3eb-100b-96e6-f650-24892b9e5748",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all users",
+			"request": {
+				"url": "http://localhost:1428/api/user",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Get all users"
+			},
+			"response": []
+		},
+		{
+			"name": "Get specific user",
+			"request": {
+				"url": "http://localhost:1428/api/user/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update specific user",
+			"request": {
+				"url": "http://localhost:1428/api/user/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":1,\n\t\"nickname\":\"Roma007\",\n\t\"name\":\"Roma\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete specific user",
+			"request": {
+				"url": "http://localhost:1428/api/user/4",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add specific user",
+			"request": {
+				"url": "http://localhost:1428/api/user",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":4,\n\t\"nickname\":\"Roma007\",\n\t\"name\":\"Roma\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get all messages",
+			"request": {
+				"url": "http://localhost:1428/api/message",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Get all messages"
+			},
+			"response": []
+		},
+		{
+			"name": "Get specific message",
+			"request": {
+				"url": "http://localhost:1428/api/message/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update specific message",
+			"request": {
+				"url": "http://localhost:1428/api/message/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"date\": \"2014-10-09T18:02:13.568Z\",\n    \"receiverId\": 1,\n    \"senderId\": 2,\n    \"body\": \"ReallyCool1\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete specific message",
+			"request": {
+				"url": "http://localhost:1428/api/message/4",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add specific message",
+			"request": {
+				"url": "http://localhost:1428/api/message",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 5,\n    \"date\": \"2010-10-09T18:02:13.568Z\",\n    \"receiverId\": 3,\n    \"senderId\": 3,\n    \"body\": \"Message for myself\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get friends of user",
+			"request": {
+				"url": "http://localhost:1428/api/friends/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
