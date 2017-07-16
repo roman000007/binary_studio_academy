@@ -1,6 +1,6 @@
 # Binary Studio Academy 2017
 
-### Actual homework is __3__
+### Actual homework is __4__
 ### Homework 1
 
 download __"homework1"__ directory and run __"index.html"__ file
