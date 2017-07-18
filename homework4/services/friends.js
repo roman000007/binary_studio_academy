@@ -18,7 +18,8 @@ function getUserIds(id){
             if(id == messages[i].receiverId || id == messages[i].senderId){
                 if(id != messages[i].receiverId){
                     data.push(messages[i].receiverId);
-                }else{
+                }
+                if(id != messages[i].senderId){
                     data.push(messages[i].senderId);
                 }
                 
