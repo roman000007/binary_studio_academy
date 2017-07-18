@@ -201,7 +201,8 @@ function addWhoTyping(usrs){
     }
   }
   if(typing.length > 0){
-  whoTyping.innerHTML = typing.join(", ") + " typing...";
+      let verb = typing.length == 1 ? " is ": " are ";
+  whoTyping.innerHTML = typing.join(", ") + verb + "typing...";
   }else{
     whoTyping.innerHTML = "";
   }
