@@ -4,7 +4,7 @@ let user;
 const send = document.getElementById("send");
 const msgData = document.getElementById("msg-data");
 
-let usrs, msgs;
+
 /*
 socket.on("users", (u) => {
   clearUsers();
@@ -65,30 +65,38 @@ function getUserInfo() {
   };
   document.title = user.name + " | My Chat";
 
-  sendAJAX("POST", "http://localhost:1428/api/user/", user, function(){});
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:1428/api/user/",
+    data: JSON.stringify(user),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+    }
+  });
 
 
 
   setInterval(function () {
 
-    let msgs, usrs;
-    usrs = sendAJAX("GET", "http://localhost:1428/api/user/", {}, usersService);
-
-    function usersService(data) {
-      if(data){
-      clearUsers();
-      showUsers(data);
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:1428/api/user",
+      success: function (usrs) {
+          clearUsers();
+          showUsers(usrs);
       }
-    };
+    });
 
-    msgs = sendAJAX("GET", "http://localhost:1428/api/message/", {}, messageService);
-
-    function messageService(data) {
-      if(data){
-      clearMessages();
-      showMessages(data);
+        $.ajax({
+      type: "GET",
+      url: "http://localhost:1428/api/message",
+      success: function (msgs) {
+        clearMessages();
+        showMessages(msgs);
       }
-    };
+    });
 
   }, 100);
 }
@@ -109,9 +117,14 @@ send.addEventListener("click", () => {
     data: msgData.value,
   }
   msgData.value = "";
-  sendAJAX("POST", "http://localhost:1428/api/message/", msg, function(){});
+    $.ajax({
+    type: "POST",
+    url: "http://localhost:1428/api/message/",
+    data: JSON.stringify(msg),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json"
+  });
 })
-
 
 
 $("#msg-data").keyup(function (event) {
@@ -137,7 +150,7 @@ function clearUsers() {
 
 function showMessages(msgs) {
   const messages = document.getElementById('messages');
-if(!msgs)return;
+
   for (let i = 0; i < msgs.length; i++) {
     const message = document.createElement('li');
     if (msgs[i].data.indexOf("@" + user.nickname) == 0) {
@@ -165,7 +178,6 @@ if(!msgs)return;
 
 
 function showUsers(usrs) {
-  if(!usrs)return;
   const users = document.getElementById('users');
   for (let i = 0; i < usrs.length; i++) {
     const usr = document.createElement('li');
@@ -204,22 +216,3 @@ function guid() {
 };
 
 
-function sendAJAX(method, url, js_data, callback) {
-
-  var xmlhttp = new XMLHttpRequest(); // new HttpRequest instance 
-  xmlhttp.open(method, url);
-  if (method == 'POST') {
-    xmlhttp.setRequestHeader("Content-Type", "application/json");
-    xmlhttp.send(JSON.stringify(js_data));
-  } else {
-    xmlhttp.send();
-  }
-
-  xmlhttp.onreadystatechange = function () {
-
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      callback(JSON.parse(xmlhttp.responseText));
-    }
-  }
-
-}
