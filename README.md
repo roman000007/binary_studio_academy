@@ -1,6 +1,6 @@
 # Binary Studio Academy 2017
 
-### Actual homework is __4__
+### Actual homework is __5__
 ### Homework 1
 
 download __"homework1"__ directory and run __"index.html"__ file
@@ -37,3 +37,18 @@ Start:
 * in this directory run __node ./__
 
 How to send http read at __homework4/README.md__
+
+### Homework 5
+* download __"homework5"__ directory
+
+Socket.IO:
+* go to __homework5/Socket.IO__
+* in this directory run __node ./__
+* go to __localhost:80__
+
+AJAX:
+* go to __homework5/AJAX__
+* in this directory run __node ./__
+* go to __localhost:1428__
+
+Created site is fully responsible and all requirements are fully respected

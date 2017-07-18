@@ -146,6 +146,12 @@ function showMessages(msgs, usrs){
     msgBody.innerHTML = msgs[i].data;
     message.appendChild(msgBody);
 
+    const msgDate = document.createElement('div');
+    msgDate.setAttribute("class", "message-time");
+    let date = new Date(msgs[i].date);
+    msgDate.innerHTML = date.getHours().toString() + ":" + date.getMinutes().toString() + ":" + date.getSeconds().toString();
+    message.appendChild(msgDate);
+
     messages.appendChild(message);
   };
   messages.innerHTML += '<div id="typing"></div>';

@@ -16,6 +16,15 @@ body {
 .message{
     cursor: pointer;
 }
+.message-time{
+    font-weight: bold;
+    float: right;
+    margin-top: -20px;
+    font-style: italic;
+}
+.message-body{
+    max-width: calc(100% - 70px);
+}
 .list-group-item{
     border-radius: 0px !important;
 }

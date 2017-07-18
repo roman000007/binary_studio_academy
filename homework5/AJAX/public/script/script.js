@@ -1,10 +1,11 @@
-const socket = io('http://localhost');
 let name = ""; //TODO
 let nickname = ""; //TODO
 let user;
 const send = document.getElementById("send");
 const msgData = document.getElementById("msg-data");
 
+
+/*
 socket.on("users", (u) => {
   clearUsers();
   showUsers(u);
@@ -23,27 +24,27 @@ socket.on("messages", (data)=>{
   clearMessages();
   showMessages(data[0], data[1]);
 });
-
+*/
 
 
 window.onload = () => {
-   $('#inf').hide();
+  $('#inf').hide();
   $('#myModal').modal('show');
 };
 
 
 window.onbeforeunload = () => {
- if(user.id){
-   socket.emit("delete user", user.id);
- }
+  if (user.id) {
+    socket.emit("delete user", user.id);
+  }
 };
 
 
 
 $('#myModal').on('hidden.bs.modal', function (e) {
-  if(name || nickname) return;
+  if (name || nickname) return;
   getUserInfo();
-console.log(user.id);
+  console.log(user.id);
 });
 
 
@@ -51,24 +52,53 @@ function getUserInfo() {
   name = document.getElementById("name").value;
   nickname = document.getElementById("nickname").value;
   if (!name) {
-      name = "User " + getRandomInt(10000, 99999).toString();
+    name = "User " + getRandomInt(10000, 99999).toString();
   }
   if (!nickname) {
-      nickname = "stranger" + getRandomInt(10000, 99999).toString();
+    nickname = "stranger" + getRandomInt(10000, 99999).toString();
   }
-  user =  {
+  user = {
     time: new Date(),
     name: name,
     nickname: nickname,
-    id: guid(),
-    ja: true
+    id: guid()
   };
-  setTimeout((id)=>{
-   socket.emit("update status", user.id); 
-  }, 60000);
   document.title = user.name + " | My Chat";
 
-  socket.emit("init", user);
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:1428/api/user/",
+    data: JSON.stringify(user),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+    }
+  });
+
+
+
+  setInterval(function () {
+
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:1428/api/user",
+      success: function (usrs) {
+          clearUsers();
+          showUsers(usrs);
+      }
+    });
+
+        $.ajax({
+      type: "GET",
+      url: "http://localhost:1428/api/message",
+      success: function (msgs) {
+        clearMessages();
+        showMessages(msgs);
+      }
+    });
+
+  }, 100);
 }
 
 
@@ -76,8 +106,8 @@ function getUserInfo() {
 
 
 
-send.addEventListener("click", ()=>{
-  if(!msgData.value) return;
+send.addEventListener("click", () => {
+  if (!msgData.value) return;
   console.log("added msg");
   msg = {
     date: new Date,
@@ -85,56 +115,48 @@ send.addEventListener("click", ()=>{
     from_id: user.id,
     from_name: user.name,
     data: msgData.value,
-    typing: false
   }
   msgData.value = "";
-  user.typing = false;
-  socket.emit("client typing", user);
-  socket.emit("send message", msg);
+    $.ajax({
+    type: "POST",
+    url: "http://localhost:1428/api/message/",
+    data: JSON.stringify(msg),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json"
+  });
 })
 
 
-$("#msg-data").keyup(function(event){
-    if(event.keyCode == 13){
-        $("#send").click();
-    }else{
-      if(!msgData.value && user.typing){
-        user.typing = false;
-        socket.emit("client typing", user);
-      }
-      if(msgData.value && !user.typing){
-        user.typing = true;
-        socket.emit("client typing", user);
-      }
-      
-    }
+$("#msg-data").keyup(function (event) {
+  if (event.keyCode == 13) {
+    $("#send").click();
+  }
 });
 
 
 
-function clearMessages(){
+function clearMessages() {
   const messages = document.getElementById('messages');
   messages.innerHTML = "";
 };
 
 
-function clearUsers(){
+function clearUsers() {
   const users = document.getElementById('users');
   users.innerHTML = "";
 };
 
 
 
-function showMessages(msgs, usrs){
-  console.log(msgs, usrs, "SH");
+function showMessages(msgs) {
   const messages = document.getElementById('messages');
-  
-  for(let i = 0; i < msgs.length; i++){
+
+  for (let i = 0; i < msgs.length; i++) {
     const message = document.createElement('li');
-    if(msgs[i].data.indexOf("@" + user.nickname) == 0){
-  message.setAttribute("class", "message-blue message list-group-item");
-    }else{
-    message.setAttribute("class", "message list-group-item");
+    if (msgs[i].data.indexOf("@" + user.nickname) == 0) {
+      message.setAttribute("class", "message-blue message list-group-item");
+    } else {
+      message.setAttribute("class", "message list-group-item");
     }
     const msgFrom = document.createElement('p');
     msgFrom.setAttribute("class", "message-name");
@@ -146,63 +168,40 @@ function showMessages(msgs, usrs){
     msgBody.innerHTML = msgs[i].data;
     message.appendChild(msgBody);
 
+
     messages.appendChild(message);
   };
-  messages.innerHTML += '<div id="typing"></div>';
-  
-  addWhoTyping(usrs);
+
+
 };
 
 
 
-function showUsers(usrs){
+function showUsers(usrs) {
   const users = document.getElementById('users');
-  for(let i = 0; i < usrs.length; i++){
+  for (let i = 0; i < usrs.length; i++) {
     const usr = document.createElement('li');
 
     usr.setAttribute("class", "user list-group-item");
 
     const who = document.createElement('div');
     let t = usrs[i].name + "@" + usrs[i].nickname;
-    if(t.length > 31){
-    who.innerHTML = t.slice(0, 28) + "...";
-    }else{
-    who.innerHTML = t;
+    if (t.length > 31) {
+      who.innerHTML = t.slice(0, 28) + "...";
+    } else {
+      who.innerHTML = t;
     }
     usr.appendChild(who);
 
-    const status = document.createElement('div');
-    if(usrs[i].ja){
-    status.setAttribute("class", "stat-ja");
-    status.innerHTML = "Just appeared";
-    }else{
-    status.setAttribute("class", "stat-on");
-    status.innerHTML = "Online";
-    }
-    usr.appendChild(status);
 
     users.appendChild(usr);
   };
-  
+
 };
 
-function addWhoTyping(usrs){
-  const whoTyping = document.getElementById('typing');
-  let typing = [];
-  for(let i = 0; i < usrs.length; i++){
-    if(usrs[i].typing && usrs[i].id != user.id){
-      typing.push(usrs[i].name);
-    }
-  }
-  if(typing.length > 0){
-  whoTyping.innerHTML = typing.join(", ") + " typing...";
-  }else{
-    whoTyping.innerHTML = "";
-  }
-};
 
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 
@@ -214,19 +213,6 @@ function guid() {
   }
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4() + s4();
-};
-
-
-
-
-function showAlert(msg){
-  
-  $("#inf").text(msg);
- $('#inf').show();
- setTimeout(()=>{
- $('#inf').hide();
- }, 3000);
-
 };
 
 
