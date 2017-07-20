@@ -1,0 +1,14 @@
+$blue: #3bbfce
+
+.avatar
+    width: 200px
+    height: 200px
+
+.container
+    flex-direction: column
+    color: $blue
+    display: flex
+    transition: all .5s
+    user-select: none
+    background: linear-gradient(to bottom, white, black)
+

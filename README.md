@@ -50,5 +50,6 @@ AJAX:
 * go to __homework5/AJAX__
 * in this directory run __node ./__
 * go to __localhost:1428__
+* __NOTE:__ in __homework5/AJAX/public/script__ located two version of script: script_jquery.js (using JQuery) and script.js (using XMLHttpRequest)(default)
 
 Created site is fully responsible and all requirements are fully respected
