@@ -8,8 +8,10 @@ export function userList(users)
         let i = 0;
         sortedUsers.forEach((user) => {
             const div = document.createElement('div');
-            div.append(user.name + ' ' + user.age);
-            container.appendChild(div);
+            div.setAttribute('class', 'item');
+            const info = document.createElement('div');
+            info.append(user.name + ' ' + user.age);
+
 
             const img = document.createElement('img');
             img.setAttribute('class', 'avatar');
@@ -17,8 +19,11 @@ export function userList(users)
             let url = require(`./../img/${ind}.png`);
 
             img.src = 'dist/' + url;
-            container.appendChild(img);
+
+            div.appendChild(info);
+            div.appendChild(img);
             i++;
+            container.appendChild(div);
         });
     };
 }

@@ -37,7 +37,7 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.png$/,
+				test: /\.(png|jpg|jpeg)$/,
 				use: [
 					'file-loader?name=[name].[ext]',
 					'image-webpack-loader'
