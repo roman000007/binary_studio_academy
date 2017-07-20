@@ -57,7 +57,9 @@ Created site is fully responsible and all requirements are fully respected
 ### Homework 6
 Start:
 * download __"homework6"__ directory
+* in cmd: __cd homework6__
 * For requirements and my solves read in __homework6/README.md__
+
 
 Run:
 * in this directory run in cmd __webpack__ and open __index.html__

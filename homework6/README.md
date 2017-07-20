@@ -13,4 +13,8 @@
 * Disable comments: disabled in this way __output: {comments: false}__: __DONE__
 * used lesson example and for every user added avatar: __DONE__
 
+Run:
+* in this directory run in cmd __webpack__ and open __index.html__
+* in this directory run in cmd __webpack-dev-server__ and go to  __localhost:8080__
+
 ## Roman Vey
