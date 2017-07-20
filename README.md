@@ -1,6 +1,6 @@
 # Binary Studio Academy 2017
 
-### Actual homework is __5__
+### Actual homework is __6__
 ### Homework 1
 
 download __"homework1"__ directory and run __"index.html"__ file
@@ -48,8 +48,15 @@ Socket.IO:
 
 AJAX:
 * go to __homework5/AJAX__
+* in homework5/AJAX/public/script located __script.js__ (XMLHttpRequest) and __script_jquery.js__ (JQuery)
 * in this directory run __node ./__
 * go to __localhost:1428__
-* __NOTE:__ in __homework5/AJAX/public/script__ located two version of script: script_jquery.js (using JQuery) and script.js (using XMLHttpRequest)(default)
 
 Created site is fully responsible and all requirements are fully respected
+
+### Homework 6
+Start:
+* download __"homework6"__ directory
+* in this directory run in cmd __webpack__ and open __index.html__
+* in this directory run in cmd __webpack-dev-server__ and go to  __localhost:8080__
+
