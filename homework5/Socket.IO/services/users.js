@@ -19,14 +19,14 @@ module.exports = {
         let res = false;
         if(ind != -1){
             res = users[ind];
-            users.splice(ind, 1);
+            users[ind].user_status = 0;
         }
         return res;
     },
     updateStatus: (id)=>{
         let ind = findUserById(id);
         if(ind != -1){
-            users[ind].ja = false;
+            users[ind].user_status = 2;
         }
     },
     typingChange: (id, val)=>{

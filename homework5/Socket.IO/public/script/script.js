@@ -1,6 +1,6 @@
 const socket = io('http://localhost');
-let name = ""; //TODO
-let nickname = ""; //TODO
+let name = "";
+let nickname = "";
 let user;
 const send = document.getElementById("send");
 const msgData = document.getElementById("msg-data");
@@ -61,7 +61,7 @@ function getUserInfo() {
     name: name,
     nickname: nickname,
     id: guid(),
-    ja: true
+    user_status: 1
   };
   setTimeout((id)=>{
    socket.emit("update status", user.id); 
@@ -178,12 +178,17 @@ function showUsers(usrs){
     usr.appendChild(who);
 
     const status = document.createElement('div');
-    if(usrs[i].ja){
+    if(usrs[i].user_status == 1){
     status.setAttribute("class", "stat-ja");
     status.innerHTML = "Just appeared";
-    }else{
+    }
+    if(usrs[i].user_status == 2){
     status.setAttribute("class", "stat-on");
     status.innerHTML = "Online";
+    }
+        if(usrs[i].user_status == 0){
+    status.setAttribute("class", "stat-off");
+    status.innerHTML = "Offline";
     }
     usr.appendChild(status);
 

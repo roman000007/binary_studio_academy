@@ -22,6 +22,10 @@ body {
     margin-top: -20px;
     font-style: italic;
 }
+#inf{
+    height: 100px;
+    font-size: 24px;
+}
 .message-body{
     max-width: calc(100% - 70px);
 }
@@ -34,6 +38,10 @@ body {
 }
 .stat-ja{
     color: lightblue;
+    font-style: italic;
+}
+.stat-off{
+    color: indianred;
     font-style: italic;
 }
 .user{
