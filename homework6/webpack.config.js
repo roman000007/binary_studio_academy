@@ -2,7 +2,7 @@ var webpack = require("webpack");
 
 module.exports = {
 	context: __dirname,
-	devtool: "eval-source-map",
+	devtool: "inline-source-map",
 	entry: "./src/js/main.js",
 	output: {
 		path: __dirname + "/dist",

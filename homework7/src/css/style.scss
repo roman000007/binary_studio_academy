@@ -1,0 +1,17 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  background-color: $primary-color;
+}
+#img1{
+  width: 500px;
+  height: 500px;
+  background-image: url('./../img/logo.jpg');
+  display: flex;
+}
+#img2{
+  width: 500px;
+  height: 500px;
+}
