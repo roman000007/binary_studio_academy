@@ -22,6 +22,7 @@ export class Fight implements IFight {
     private _hitting(step: number, points: number[],fighter: IFighter, improvedFighter: IImprovedFighter){
         if(step == points.length){
             this.controller.info.textContent = "DRAW!";
+            console.log("DRAW!");
             return;
         }
         if(step % 2 == 0){
@@ -37,11 +38,13 @@ export class Fight implements IFight {
 
         if(!fighter.isAlive()){
                 this.controller.info.innerHTML = `<span style="color: red">${improvedFighter.name}</span> wins!!!`;
+                console.log(`${improvedFighter.name} wins!!!`);
                 clearTimeout(this._timerId);
                 return;
         };
         if(!improvedFighter.isAlive()){
                 this.controller.info.innerHTML = `<span style="color: red">${fighter.name}</span> wins!!!`;
+                console.log(`${fighter.name} wins!!!`);
                 clearTimeout(this._timerId);
                 return;
         };

@@ -47,4 +47,3 @@ export class ImprovedFighter extends Fighter implements IImprovedFighter{
     }
 
 }
-function isNumber(obj: any) { return !isNaN(parseFloat(obj)) };
