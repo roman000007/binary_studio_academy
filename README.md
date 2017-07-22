@@ -1,6 +1,6 @@
 # Binary Studio Academy 2017
 
-### Actual homework is __6__
+### Actual homework is __7__
 ### Homework 1
 
 download __"homework1"__ directory and run __"index.html"__ file
@@ -64,4 +64,10 @@ Start:
 Run:
 * in this directory run in cmd __webpack__ and open __index.html__
 * in this directory run in cmd __webpack-dev-server__ and go to  __localhost:8080__
+
+### Homework 7
+Start:
+* download __"homework7"__ directory
+* in cmd: __cd homework7__
+* For requirements and usage read in __homework7/README.md__
 

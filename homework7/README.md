@@ -19,5 +19,6 @@
 Run:
 * in this directory __npm i__
 * in this directory run in cmd __webpack__ and open __index.html__
+* input data, click "fight!" and wait for a seconds
 
 ## Roman Vey
