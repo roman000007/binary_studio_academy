@@ -24,6 +24,7 @@ TODO:
 * also animations, third color?
 * body font color, hovered color
 * hide footer if 
+* __IMPORTANT__ homework2 fully updated,fixed some things and added JS support
 ### DONE
 
 ### Homework 3

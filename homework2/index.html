@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title> Dalmatians</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="icon" href="img/icon.jpg">
@@ -15,10 +15,10 @@
         <div id="header-icon"><b> DALMATIANS</b></div>
         <div id="header-search">
             <div>
-                <input type="text" id="header-search-input" />
+                <input type="text" id="header-search-input"  class="lg"/>
             </div>
-            <div  class="lg header-search-text">Search</div>
-            <div  class="sm md header-search-text"><i class="fa fa-search"></i></div>
+            <div  class="header-search-text lg"><i class="fa fa-search"></i></div>
+            <div class="sm md" id="burger"><i class="fa fa-bars"></i></div>
             
 
         </div>
@@ -38,6 +38,7 @@
     </div>
     <div id="divider">
         <div id="menu-left">
+            <div id="menu-left-search-container"><input type="text" id="menu-left-search" placeholder="Search"></div>
             <div>Help</div>
             <div>Links</div>
             <div>Developer</div>
@@ -124,6 +125,7 @@
          <div class="md author-text">Created by Roman Vey</div>
           <div class="sm author-text"><i class="fa fa-copyright"></i> Roman Vey</div>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
