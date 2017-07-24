@@ -1,0 +1,15 @@
+
+
+<div class="clock-container">
+  <div class="clock-main">
+    <stopwatch *ngIf="selectedClockType=='Stopwatch'"></stopwatch>
+    <time *ngIf="selectedClockType=='Time'"></time>
+    <timer *ngIf="selectedClockType=='Timer'"></timer>
+  </div>
+
+<md-radio-group class="clock-radio-group" [(ngModel)]="selectedClockType">
+  <md-radio-button *ngFor="let clockType of clockTypes" [value]="clockType" class="clock-radio-button">
+    {{clockType}}
+  </md-radio-button>
+</md-radio-group>
+</div>

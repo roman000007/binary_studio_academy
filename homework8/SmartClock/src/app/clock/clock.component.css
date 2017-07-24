@@ -1,0 +1,11 @@
+.clock-radio-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.clock-container{
+    display: flex;
+}
+.clock-radio-button{
+    margin: 15px;
+}
