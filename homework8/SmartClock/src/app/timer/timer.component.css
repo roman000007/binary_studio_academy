@@ -1,0 +1,47 @@
+.timer-input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+.timer-time{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 30pt;
+    text-align: center;
+}
+.timer-button-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+#timer-start{
+    color: white;
+}
+
+#timer-clear{
+    color: white;
+}
+
+.green-color{
+    background-color: #43A047;
+}
+
+.orange-color{
+    background-color: #FFC107;
+}
+
+.gray-color{
+    background-color: #C5CAE9;
+    cursor: not-allowed;
+}
+
+.red-color{
+        background-color: #E53935;
+        cursor: pointer;
+        
+}

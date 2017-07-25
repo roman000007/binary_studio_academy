@@ -6,11 +6,11 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ClockComponent } from './clock/clock.component';
 
-import {MdRadioModule} from '@angular/material';
+import {MdRadioModule, MdInputModule} from '@angular/material';
 import { TimeComponent } from './time/time.component';
 import { TimerComponent } from './timer/timer.component';
 import { StopwatchComponent } from './stopwatch/stopwatch.component';
-import { TimeDisplayerComponent } from './time-displayer/time-displayer.component';
+import {MdButtonModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,14 +18,15 @@ import { TimeDisplayerComponent } from './time-displayer/time-displayer.componen
     ClockComponent,
     TimeComponent,
     TimerComponent,
-    StopwatchComponent,
-    TimeDisplayerComponent
+    StopwatchComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    MdRadioModule
+    MdRadioModule,
+    MdInputModule,
+    MdButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

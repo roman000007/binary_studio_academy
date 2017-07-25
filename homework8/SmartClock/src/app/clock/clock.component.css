@@ -9,3 +9,10 @@
 .clock-radio-button{
     margin: 15px;
 }
+.clock-main{
+    border: 4px #3F51B5 solid;
+    border-radius: 5px;
+    width: 500px;
+    /*height: 500px; TODO: good height*/
+    margin: 40px;
+}
