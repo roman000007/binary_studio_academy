@@ -1,3 +1,13 @@
-<p>
-  stopwatch works!
-</p>
+<div class="stopwatch-input-container">
+<div class="stopwatch-time">{{timeStr}}</div>
+<div class="stopwatch-lap-time" *ngIf="laps.length != 0">{{lapTimeStr}}</div>
+
+<div class="stopwatch-button-container">
+      <button md-button id="stopwatch-start" (click)="started ? pauseStopwatch() : startStopwatch()" [ngClass]="{'green-color': !started, 'orange-color': started}">{{started ? 'Pause' : 'Start'}}</button>
+       <button md-button id="stopwatch-lap" (click)="started ? lap() : null" [ngClass]="{'white-color': started, 'gray-color': !started}">Lap</button>
+      <button md-button id="stopwatch-clear"(click)="started ? null : clearStopwatch()" [ngClass]="{'red-color': !started, 'gray-color': started}">Clear</button>
+</div>
+
+<div id="stopwatch-laps-container" *ngIf="laps.length != 0"></div>
+
+</div>
