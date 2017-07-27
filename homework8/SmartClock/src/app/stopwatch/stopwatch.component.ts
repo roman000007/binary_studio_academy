@@ -29,8 +29,6 @@ export class StopwatchComponent implements OnInit {
   }
 
   startStopwatch() {
-    console.log("Stopwatch: startStopwatch()");
-
     this.started = true;
     this.intervalId = setInterval(() => {
       this.time += 100;
@@ -42,7 +40,6 @@ export class StopwatchComponent implements OnInit {
   }
 
   pauseStopwatch() {
-    console.log("Timer: pauseStopwatch()");
     this.timeStr = this.stopWatchService.convertTimeToStr(this.time);
     this.lapTimeStr = this.stopWatchService.convertTimeToStr(this.lapTime);
     this.started = false;
@@ -51,7 +48,7 @@ export class StopwatchComponent implements OnInit {
 
 
   clearStopwatch() {
-    console.log("Timer: clearStopwatch()");
+
     this.time = 0;
     this.lapTime = 0;
     this.laps = [];
@@ -59,7 +56,6 @@ export class StopwatchComponent implements OnInit {
   }
 
   lap() {
-    console.log("Timer: lap()");
     this.lapTimeStr = this.stopWatchService.convertTimeToStr(this.lapTime);
     this.laps.push(this.lapTime);
     this.lapTime = 0;
@@ -69,7 +65,7 @@ export class StopwatchComponent implements OnInit {
     return this.stopWatchService.getAvg(this.laps);
   }
 
-  convertDiffToStr(date: number) {
+  convertTimeToStr(date: number) {
     return this.stopWatchService.convertTimeToStr(Math.round(Math.abs(date)));
   }
 }
