@@ -1,56 +1,86 @@
-
-.stopwatch-time{
-    font-size: 30pt;
-    text-align: center;
-}
-.stopwatch-lap-time{
-    margin-top: 10px;
-    margin-bottom: 10px; 
-    font-size: 30pt;
-    text-align: center;
-}
-.stopwatch-button-container{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-#stopwatch-laps-container{
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    height: calc(80vh - 200px);
-}
-#stopwatch-start{
-    color: white;
+.stopwatch-time {
+  font-size: 30pt;
+  text-align: center;
 }
 
-#stopwatch-clear{
-    color: white;
+.stopwatch-lap-time {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 30pt;
+  text-align: center;
 }
 
-.green-color{
-    background-color: #43A047;
+.stopwatch-button-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
 }
 
-.orange-color{
-    background-color: #FFC107;
+#stopwatch-laps-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: calc(80vh - 200px);
 }
 
-.gray-color{
-    background-color: #C5CAE9;
-    cursor: not-allowed;
+#stopwatch-start {
+  color: white;
 }
 
-.white-color{
-    background-color: white;
-    border: 1px solid black;
-    cursor: pointer;
+#stopwatch-clear {
+  color: white;
 }
 
-.red-color{
-        background-color: #E53935;
-        cursor: pointer;
-        
+.green-color {
+  background-color: #43A047;
 }
 
+.orange-color {
+  background-color: #FFC107;
+}
 
+.gray-color {
+  background-color: #C5CAE9;
+  cursor: not-allowed;
+}
+
+.white-color {
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.red-color {
+  background-color: #E53935;
+  cursor: pointer;
+}
+
+.stopwatch-lap {
+  border-width: 2px 0px 2px 0px;
+  border-style: solid;
+  border-color: black;
+  padding: 5px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14pt;
+}
+
+.common-lap {
+  color: black;
+  font-weight: bold;
+}
+
+.better-lap {
+  color: #43A047;
+}
+
+.worse-lap {
+  color: #E53935;
+}
+
+.stopwatch-avg {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20pt;
+  text-align: center;
+}

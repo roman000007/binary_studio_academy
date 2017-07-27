@@ -33,49 +33,4 @@ export class StopwatchService {
     let s = numbers.reduce((a, b) => (a + b), 0);
     return Math.round(s / numbers.length);
   }
-
-  updateLaps(avgNum: number, laps: number[]) {
-    this.clearLaps();
-    const container = document.getElementById('stopwatch-laps-container');
-    
-    const avgText = document.createElement('div');
-      avgText.setAttribute('class', 'stopwatch-avg');
-      avgText.textContent = this.convertTimeToStr(avgNum);
-      container.appendChild(avgText);
-
-    for (let i = 0; i < laps.length; i++) {
-      const lap = document.createElement('div');
-      lap.setAttribute('class', 'stopwatch-lap');
-
-      const time = document.createElement('div');
-      time.textContent = this.convertTimeToStr(laps[i]);
-      time.setAttribute('class', 'black-lap');
-      lap.appendChild(time);
-
-      if (i != 0) {
-        const prev = document.createElement('div');
-        let diff = laps[i] - laps[i - 1];
-        prev.setAttribute('class', diff >= 0 ? 'worse-lap' : 'better-lap');
-        diff = diff >= 0 ? diff : -diff;
-        prev.textContent = this.convertTimeToStr(Math.round(diff));
-        lap.appendChild(prev);
-      }
-
-      const avg = document.createElement('div');
-      let diff = laps[i] - avgNum;
-      avg.setAttribute('class', diff >= 0 ? 'worse-lap' : 'better-lap');
-      diff = diff >= 0 ? diff : -diff;
-      avg.textContent = this.convertTimeToStr(Math.round(diff));
-      lap.appendChild(avg);
-  
-      container.appendChild(lap);
-
-    }
-
-  }
-
-  clearLaps() {
-    const container = document.getElementById('stopwatch-laps-container');
-    container.innerHTML = "";
-  }
 }

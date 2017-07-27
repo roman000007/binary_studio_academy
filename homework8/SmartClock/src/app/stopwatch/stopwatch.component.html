@@ -1,13 +1,22 @@
 <div class="stopwatch-input-container">
-<div class="stopwatch-time">{{timeStr}}</div>
-<div class="stopwatch-lap-time" *ngIf="laps.length != 0">{{lapTimeStr}}</div>
+  <div class="stopwatch-time">{{timeStr}}</div>
+  <div class="stopwatch-lap-time" *ngIf="laps.length != 0">{{lapTimeStr}}</div>
 
-<div class="stopwatch-button-container">
-      <button md-button id="stopwatch-start" (click)="started ? pauseStopwatch() : startStopwatch()" [ngClass]="{'green-color': !started, 'orange-color': started}">{{started ? 'Pause' : 'Start'}}</button>
-       <button md-button id="stopwatch-lap" (click)="started ? lap() : null" [ngClass]="{'white-color': started, 'gray-color': !started}">Lap</button>
-      <button md-button id="stopwatch-clear"(click)="started ? null : clearStopwatch()" [ngClass]="{'red-color': !started, 'gray-color': started}">Clear</button>
-</div>
+  <div class="stopwatch-button-container">
+    <button md-button id="stopwatch-start" (click)="started ? pauseStopwatch() : startStopwatch()" [ngClass]="{'green-color': !started, 'orange-color': started}">{{started ? 'Pause' : 'Start'}}</button>
+    <button md-button id="stopwatch-lap" (click)="started ? lap() : null" [ngClass]="{'white-color': started, 'gray-color': !started}">Lap</button>
+    <button md-button id="stopwatch-clear" (click)="started ? null : clearStopwatch()" [ngClass]="{'red-color': !started, 'gray-color': started}">Clear</button>
+  </div>
 
-<div id="stopwatch-laps-container"></div>
+  <div *ngIf="laps.length != 0" id="stopwatch-laps-container">
+    <div class="stopwatch-avg">{{"Average: " + convertTimeToStr(getAvg())}}</div>
+    <div *ngFor="let lap of laps; let i = index">
+      <div class="stopwatch-lap">
+        <div class="common-lap">{{"Time: " + convertTimeToStr(laps[i])}}</div>
+        <div *ngIf="i != 0" [ngClass]="{'better-lap': laps[i] - laps[i - 1] < 0, 'worse-lap': laps[i] - laps[i - 1] >= 0}">{{"Prev.: " + convertTimeToStr(round(abs(laps[i])))}}</div>
+        <div [ngClass]="{'better-lap': laps[i] - getAvg() < 0, 'worse-lap': laps[i] - getAvg() >= 0}">{{"Avg: " + convertTimeToStr(round(abs(laps[i] - getAvg())))}}</div>
+      </div>
+    </div>
+  </div>
 
 </div>
