@@ -42,7 +42,7 @@ export class StopwatchComponent implements OnInit {
   }
 
   pauseStopwatch() {
-    console.log("Timer: pauseTimer()");
+    console.log("Timer: pauseStopwatch()");
     this.timeStr = this.stopWatchService.convertTimeToStr(this.time);
     this.lapTimeStr = this.stopWatchService.convertTimeToStr(this.lapTime);
     this.started = false;
@@ -51,7 +51,7 @@ export class StopwatchComponent implements OnInit {
 
 
   clearStopwatch() {
-    console.log("Timer: clearTimer()");
+    console.log("Timer: clearStopwatch()");
     this.time = 0;
     this.lapTime = 0;
     this.laps = [];
