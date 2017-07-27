@@ -69,16 +69,7 @@ export class StopwatchComponent implements OnInit {
     return this.stopWatchService.getAvg(this.laps);
   }
 
-  convertTimeToStr(date: number) {
-    return this.stopWatchService.convertTimeToStr(date);
-  }
-
-  round(val: number) {
-
-    return Math.round(val);
-  }
-
-  abs(val: number) {
-    return Math.abs(val);
+  convertDiffToStr(date: number) {
+    return this.stopWatchService.convertTimeToStr(Math.round(Math.abs(date)));
   }
 }

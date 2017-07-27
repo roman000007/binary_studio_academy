@@ -23,7 +23,6 @@ export class TimerComponent implements OnInit {
   }
   
   startTimer(){
-    console.log("Timer: startTimer()");
     if(this.time <= 0){
        this.clearTimer();
        return;
@@ -40,7 +39,6 @@ export class TimerComponent implements OnInit {
   }
   
   pauseTimer(){
-    console.log("Timer: pauseTimer()");
     this.timeStr = this.timerService.convertTimeToStr(this.time);
     this.started = false;
     clearInterval(this.intervalId);
@@ -48,7 +46,6 @@ export class TimerComponent implements OnInit {
 
 
   clearTimer(){
-    console.log("Timer: clearTimer()");
     this.time = 0;
     this.timerService.prepareValue(this.time);
     this.pauseTimer();
@@ -56,7 +53,6 @@ export class TimerComponent implements OnInit {
 
 
   inputChanged(value: number){
-    console.log("Timer: inputChanged()");
     value = this.timerService.prepareValue(value);
 
     this.time = value * 60000;
