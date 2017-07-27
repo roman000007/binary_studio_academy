@@ -1,6 +1,6 @@
 # Binary Studio Academy 2017
 
-### Actual homework is __7__
+### Actual homework is __8__
 ### Homework 1
 
 download __"homework1"__ directory and run __"index.html"__ file
@@ -71,4 +71,12 @@ Start:
 * download __"homework7"__ directory
 * in cmd: __cd homework7__
 * For requirements and usage read in __homework7/README.md__
+
+### Homework 8
+How to use:
+* download __"homework8"__ directory
+* in cmd: __cd homework8__, __cd SmartClock__, __npm i__, __ng s__
+* go to __localhost:4200__
+
+__All__ requirements are fully respected
 
