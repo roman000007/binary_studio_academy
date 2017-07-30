@@ -40,6 +40,7 @@ export class ProfileComponent implements OnInit {
         pass: this.pass
       }
     this.userService.updateUser(user);
+    
     this.updated = true;
     setTimeout(()=>{
       this.updated = false;
