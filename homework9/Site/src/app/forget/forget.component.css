@@ -1,0 +1,39 @@
+#forget-title{
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 10px;
+}
+#forget-form{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    width: 80%;
+}
+#forget-btn{
+    background-color: #8C9EFF;
+    color: white;
+    width: 50%;
+    margin-left: 25%;
+}
+#forget-sample{
+    font-size: 16pt;
+    font-weight: bold;
+}
+#forget-wrg-answ{
+    margin-top: 30px;
+    margin-left: 10%;
+    color: indianred;
+}
+
+.forget-link-container{
+    display: flex;
+    margin-top: 40px;
+    color: #8C9EFF;
+}
+a { 
+    color: inherit; 
+} 
+.forget-link{
+    flex-grow: 1;
+    text-align: center;
+}

@@ -1,0 +1,34 @@
+#profile-title{
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 50px;
+}
+#profile-form{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    width: 80%;
+}
+#profile-btn{
+    background-color: #8C9EFF;
+    color: white;
+    width: 50%;
+    margin-left: 25%;
+}
+#profile-errors{
+    margin-top: 30px;
+    margin-left: 10%;
+    color: indianred;
+}
+.profile-link-container{
+    display: flex;
+    margin-top: 40px;
+    color: #8C9EFF;
+}
+a { 
+    color: inherit; 
+} 
+.profile-link{
+    flex-grow: 1;
+    text-align: center;
+}

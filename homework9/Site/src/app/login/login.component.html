@@ -1,0 +1,18 @@
+<h1 id="login-title">Login</h1>
+
+<form id="login-form" name="login-form" #form="ngForm" (submit)="loginUser(form)">
+    <md-input-container>
+    <input mdInput placeholder="Email" type="email" name="email" #emailErr="ngModel" ngModel [(ngModel)]="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+    </md-input-container>
+    <md-input-container>
+        <input mdInput placeholder="Password" type="password" name="pass" #passErr="ngModel" ngModel [(ngModel)]="pass" required minlength="3">
+    </md-input-container>
+       <button md-button name="login-submit" id="login-btn" type="submit">Login</button>
+</form>
+<div class="login-link-container">
+    <a href="register" class="login-link">Register</a>
+    <a href="forget" class="login-link">Forget password</a>
+</div>
+<div [hidden]="!checkPassword()" id="login-inv-pass">
+        *Invalid password
+</div>

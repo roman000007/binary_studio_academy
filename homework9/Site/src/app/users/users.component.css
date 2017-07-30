@@ -1,0 +1,29 @@
+#users-table{
+    margin-top: 30px;
+    display: flex;
+    margin-left: 5%;
+    width: 90%;
+    flex-direction: column;
+}
+#users-title{
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 50px;
+}
+.users-row{
+    display: flex;
+    border-bottom: 2px solid #8C9EFF;
+}
+.users-elem{
+    padding: 20px;
+    flex-grow: 1;
+    cursor: pointer;
+}
+.users-main-column{
+    font-weight: bold;
+}
+#users-filter{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+}

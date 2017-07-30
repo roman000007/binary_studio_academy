@@ -1,0 +1,49 @@
+<h1 id="register-title">Register</h1>
+<form id="register-form" name="register-form" #form="ngForm" (submit)="registerUser(form)">
+    <md-input-container>
+        <input mdInput placeholder="First name" type="text" name="firstname" #firstnameErr="ngModel" ngModel [(ngModel)]="firstname" required>
+    </md-input-container>
+    <md-input-container>
+        <input mdInput placeholder="Last name" type="text" name="lastname" #lastnameErr="ngModel" ngModel [(ngModel)]="lastname" required>
+    </md-input-container>
+    <md-input-container>
+        <input mdInput placeholder="Email" type="email" name="email" #emailErr="ngModel" ngModel required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+    </md-input-container>
+    <md-input-container>
+        <input mdInput placeholder="Date of birthday" type="date" name="date" #dateErr="ngModel" ngModel [(ngModel)]="date" required>
+    </md-input-container>
+    <md-input-container>
+        <input mdInput placeholder="Password" type="password" name="pass" #passErr="ngModel" ngModel [(ngModel)]="pass" required minlength="3">
+    </md-input-container>
+    <button md-button name="register-submit" id="register-btn" type="submit">Register</button>
+</form>
+<div id="register-errors">
+    <div [hidden]="!firstnameErr.dirty || !firstnameErr.errors || !firstnameErr.errors.required">
+        *First name is required
+    </div>
+    <div [hidden]="!lastnameErr.dirty || !lastnameErr.errors || !lastnameErr.errors.required">
+        *Last name is required
+    </div>
+    <div [hidden]="!emailErr.dirty|| !emailErr.errors || !emailErr.errors.required">
+        *Email is required
+    </div>
+    <div [hidden]="!emailErr.dirty|| !emailErr.errors || !emailErr.errors.pattern">
+        *Email invalid
+    </div>
+    <div [hidden]="!alreadyRegistred">
+        *Current email already used
+    </div>
+    <div [hidden]="!dateErr.touched || !dateErr.errors || !dateErr.errors.required">
+        *Date is required
+    </div>
+    <div [hidden]="!passErr.dirty || !passErr.errors || !passErr.errors.required">
+        *Password is required
+    </div>
+    <div [hidden]="!passErr.dirty || !passErr.errors || !passErr.errors.minlength">
+        *Password minimum length is 3
+    </div>
+</div>
+<div class="register-link-container">
+    <a href="login" class="register-link">Login</a>
+    <a href="forget" class="register-link">Forget password</a>
+</div>

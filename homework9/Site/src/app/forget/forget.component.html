@@ -1,0 +1,21 @@
+<h1 id="forget-title">Forget password</h1>
+
+<form id="forget-form" name="forget-form" #form="ngForm" (submit)="getPassword(form)">
+    <md-input-container>
+    <input mdInput placeholder="Email" type="email" name="email" #emailErr="ngModel" ngModel [(ngModel)]="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+    </md-input-container>
+    <div id="forget-sample">{{sample}}</div>
+    <md-input-container>
+        <input mdInput placeholder="Ansewer" type="number" name="pass" #answErr="ngModel" ngModel [(ngModel)]="answer" required>
+    </md-input-container>
+       <button md-button name="forget-submit" id="forget-btn" type="submit">Show</button>
+</form>
+
+    <div [hidden]="goodAnswer" id="forget-wrg-answ">
+        *Wrong answer
+    </div>
+<router-outlet></router-outlet>
+<div class="forget-link-container">
+    <a href="register" class="forget-link">Register</a>
+    <a href="login" class="forget-link">Login</a>
+</div>

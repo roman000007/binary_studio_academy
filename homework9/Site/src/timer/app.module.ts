@@ -27,6 +27,11 @@ import { StopwatchComponent } from './stopwatch/stopwatch.component';
     MdInputModule,
     MdButtonModule
   ],
+  exports:[     
+    ClockComponent,
+    TimeComponent,
+    TimerComponent,
+    StopwatchComponent ],
   providers: [],
   bootstrap: [AppComponent]
 })

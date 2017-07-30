@@ -1,0 +1,20 @@
+#error-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+.error-big-text{
+    font-size: 32pt;
+    font-weight: bold;
+}
+a{
+    color: inherit;
+}
+.error-link{
+    font-size: 12pt;
+    color: #8C9EFF;
+}

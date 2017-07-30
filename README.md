@@ -1,6 +1,6 @@
 # Binary Studio Academy 2017
 
-### Actual homework is __8__
+### Actual homework is __9__
 ### Homework 1
 
 download __"homework1"__ directory and run __"index.html"__ file
@@ -80,3 +80,10 @@ How to use:
 
 __All__ requirements are fully respected
 
+### Homework 9
+How to use:
+* download __"homework9"__ directory
+* in cmd: __cd homework9__, __cd Site__, __npm i__, __ng s__
+* go to __localhost:4200__
+
+__All__ requirements are fully respected

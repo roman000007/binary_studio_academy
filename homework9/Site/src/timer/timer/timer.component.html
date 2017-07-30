@@ -1,0 +1,10 @@
+<div class="timer-input-container">
+<div class="timer-time">{{timeStr}}</div>
+<md-input-container>
+      <input mdInput placeholder="Set time (in minutes)" type="number" id="timer-input" min="0" max="59" (input)="inputChanged($event.target.value)" [disabled]="started">
+</md-input-container>
+<div class="timer-button-container">
+      <button md-button id="timer-start" (click)="started ? pauseTimer() : startTimer()" [ngClass]="{'green-color': !started, 'orange-color': started}">{{started ? 'Pause' : 'Start'}}</button>
+      <button md-button id="timer-clear"(click)="started ? null : clearTimer()" [ngClass]="{'red-color': !started, 'gray-color': started}">Clear</button>
+</div>
+</div>

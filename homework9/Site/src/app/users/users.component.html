@@ -1,0 +1,22 @@
+<h1 id="users-title">List of users</h1>
+
+<md-input-container id="users-filter">
+    <input mdInput placeholder="Filter users" type="text" [(ngModel)]="search" (change)="reloadPipe()">
+</md-input-container>
+
+<div id="users-table">
+    <div class="users-row users-main-column">
+        <div class="users-elem" (click)="setSortColumn(0)">Firstname <i [ngClass]="currentClasses[0]" aria-hidden="true"></i></div>
+        <div class="users-elem" (click)="setSortColumn(1)">Lastname <i [ngClass]="currentClasses[1]" aria-hidden="true"></i></div>
+        <div class="users-elem" (click)="setSortColumn(2)">Email <i [ngClass]="currentClasses[2]" aria-hidden="true"></i></div>
+        <div class="users-elem" (click)="setSortColumn(3)">Date <i [ngClass]="currentClasses[3]" aria-hidden="true"></i></div>
+        <div class="users-elem" (click)="setSortColumn(4)">Password <i [ngClass]="currentClasses[4]" aria-hidden="true"></i></div>
+    </div>
+    <div class="users-row" *ngFor="let user of users | sort:type:direction:search">
+        <div class="users-elem">{{user.firstname}}</div>
+        <div class="users-elem">{{user.lastname}}</div>
+        <div class="users-elem">{{user.email}}</div>
+        <div class="users-elem">{{user.date | date:'dd.MM.yyyy'}}</div>
+        <div class="users-elem">{{user.pass}}</div>
+    </div>
+</div>
